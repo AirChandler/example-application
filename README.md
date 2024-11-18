@@ -52,20 +52,6 @@ Before getting started, make sure you have a proper Zephyr development
 environment. Follow the official
 [Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html).
 
-### Initialization
-
-The first step is to initialize the workspace folder (``my-workspace``) where
-the ``example-application`` and all Zephyr modules will be cloned. Run the following
-command:
-
-```shell
-# initialize my-workspace for the example-application (main branch)
-west init -m https://github.com/zephyrproject-rtos/example-application --mr main my-workspace
-# update Zephyr modules
-cd my-workspace
-west update
-```
-
 ### Building and running
 
 To build the application, run the following command:
@@ -73,6 +59,12 @@ To build the application, run the following command:
 ```shell
 cd example-application
 west build -b $BOARD app
+```
+or optionally
+
+```shell
+cd example-application
+west build -b $BOARD app -- -DDTC_OVERLAY_FILE=/FULL-PATH-TO/example-application/app/boards/*.overlay
 ```
 
 where `$BOARD` is the target board.

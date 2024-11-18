@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2019-2020 Nordic Semiconductor ASA
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+    
+/ { 
+    /* These aliases are provided for compatibility with samples */
+    blink_led: blink-led {
+		compatible = "blink-gpio-led";
+		led-gpios = <&gpio0 28 GPIO_ACTIVE_LOW>;
+		blink-period-ms = <1000>;
+	};
+
+    example_sensor: example-sensor {
+		compatible = "zephyr,example-sensor";
+		input-gpios = <&gpio0 23 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+	};
+};
